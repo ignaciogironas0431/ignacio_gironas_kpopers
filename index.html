@@ -4,26 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>K-Agenda · Plaza Camacho</title>
-  <meta name="description" content="Cartelera de la comunidad K-pop de la Plaza Camacho: eventos de la semana, cronograma en vivo, repertorio del RPD e inscripciones.">
 
-  <!-- Tipografías: Anton (títulos) + Inter (texto) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <!-- Fuentes de Google: Anton para títulos, Inter para texto -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body id="top">
+<body>
 
-  <!-- ===== header.site-header ===== -->
-  <header class="site-header">
-    <a class="site-logo" href="index.html">K-Agenda</a>
+  <!-- CABECERA: logo, menú y botón -->
+  <header class="cabecera">
+    <a class="logo" href="index.html">K-Agenda</a>
 
-    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">≡</button>
-
-    <nav class="main-navigation" aria-label="Menú principal">
-      <ul class="main-menu">
-        <li><a href="index.html" aria-current="page">Inicio</a></li>
+    <nav class="menu">
+      <ul>
+        <li><a class="activo" href="index.html">Inicio</a></li>
         <li><a href="agenda/index.html">Agenda</a></li>
         <li><a href="en-vivo/index.html">En vivo</a></li>
         <li><a href="rpd/index.html">RPD</a></li>
@@ -33,158 +27,128 @@
       </ul>
     </nav>
 
-    <a class="btn btn--secondary header-cta" href="fanclubs/index.html">Comunidad en WhatsApp <span aria-hidden="true">→</span></a>
+    <a class="boton boton-borde boton-cabecera" href="fanclubs/index.html">Comunidad en WhatsApp</a>
   </header>
 
-  <!-- ===== main.main-content ===== -->
-  <main class="main-content">
+  <main>
 
-    <!-- section.hero#ahora · evento en curso -->
-    <section class="hero" id="ahora">
-      <div class="hero__media">
-        <img class="hero__image" src="img/evento-en-curso.jpg" alt="Aniversario TXT en el atrio de la Plaza Camacho">
+    <!-- PORTADA: el evento que está pasando ahora -->
+    <section class="portada">
+      <div class="portada-imagen">
+        <img src="img/evento-en-curso.jpg" alt="Aniversario TXT en la Plaza Camacho">
       </div>
-      <div class="hero__content">
-        <span class="tag tag--now">Ahora en la plaza</span>
-        <h1 class="hero__title">Aniversario TXT</h1>
-        <p class="hero__meta">Ahora: Rifa y juegos · Graderías · hasta 18:30</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="en-vivo/index.html">Ver qué pasa hoy <span aria-hidden="true">→</span></a>
-          <a class="btn btn--secondary" href="en-vivo/mapa.html">Ver mapa de la plaza <span aria-hidden="true">→</span></a>
+      <div class="portada-texto">
+        <span class="etiqueta etiqueta-ahora">Ahora en la plaza</span>
+        <h1>Aniversario TXT</h1>
+        <p>Ahora: Rifa y juegos · Graderías · hasta 18:30</p>
+        <div class="botones">
+          <a class="boton boton-magenta" href="en-vivo/index.html">Ver qué pasa hoy</a>
+          <a class="boton boton-borde" href="en-vivo/mapa.html">Ver mapa de la plaza</a>
         </div>
       </div>
     </section>
 
-    <!-- section.quick-access#accesos · las 4 tareas de los escenarios -->
-    <section class="quick-access" id="accesos">
-      <h2 class="section-title">¿Qué quieres hacer?</h2>
-      <ul class="quick-access__list">
-        <li class="quick-card">
-          <a href="agenda/index.html">
-            <span class="quick-card__icon quick-card__icon--primary" aria-hidden="true"></span>
-            <h3 class="quick-card__title">Cartelera de la semana</h3>
-            <p class="quick-card__text">Todos los eventos en un lugar</p>
-          </a>
-        </li>
-        <li class="quick-card">
-          <a href="en-vivo/index.html">
-            <span class="quick-card__icon quick-card__icon--highlight" aria-hidden="true"></span>
-            <h3 class="quick-card__title">En vivo hoy</h3>
-            <p class="quick-card__text">Qué pasa ahora y dónde</p>
-          </a>
-        </li>
-        <li class="quick-card">
-          <a href="rpd/index.html">
-            <span class="quick-card__icon quick-card__icon--accent" aria-hidden="true"></span>
-            <h3 class="quick-card__title">Repertorio del RPD</h3>
-            <p class="quick-card__text">Repasa antes de bailar</p>
-          </a>
-        </li>
-        <li class="quick-card">
-          <a href="inscripciones/index.html">
-            <span class="quick-card__icon quick-card__icon--whatsapp" aria-hidden="true"></span>
-            <h3 class="quick-card__title">Inscribir a mi elenco</h3>
-            <p class="quick-card__text">Shows y concursos abiertos</p>
-          </a>
-        </li>
-      </ul>
+    <!-- ACCESOS RÁPIDOS: las 4 tareas principales -->
+    <section class="accesos">
+      <h2>¿Qué quieres hacer?</h2>
+      <div class="accesos-lista">
+        <a class="acceso" href="agenda/index.html">
+          <span class="punto magenta"></span>
+          <h3>Cartelera de la semana</h3>
+          <p>Todos los eventos en un lugar</p>
+        </a>
+        <a class="acceso" href="en-vivo/index.html">
+          <span class="punto menta"></span>
+          <h3>En vivo hoy</h3>
+          <p>Qué pasa ahora y dónde</p>
+        </a>
+        <a class="acceso" href="rpd/index.html">
+          <span class="punto cian"></span>
+          <h3>Repertorio del RPD</h3>
+          <p>Repasa antes de bailar</p>
+        </a>
+        <a class="acceso" href="inscripciones/index.html">
+          <span class="punto lima"></span>
+          <h3>Inscribir a mi elenco</h3>
+          <p>Shows y concursos abiertos</p>
+        </a>
+      </div>
     </section>
 
-    <!-- section.this-week#semana · resumen de la cartelera -->
-    <section class="this-week" id="semana">
-      <header class="section-header">
-        <h2 class="section-title">Esta semana</h2>
-        <a class="section-link" href="agenda/index.html">Ver cartelera completa ›</a>
-      </header>
+    <!-- ESTA SEMANA: tarjetas de eventos -->
+    <section class="semana">
+      <div class="titulo-seccion">
+        <h2>Esta semana</h2>
+        <a href="agenda/index.html">Ver cartelera completa</a>
+      </div>
 
-      <div class="events-grid">
-        <article class="event-card">
-          <img class="event-card__image" src="img/evento-1.jpg" alt="">
-          <span class="tag">RPD abierto</span>
-          <h3 class="event-card__title">RPD abierto de la plaza</h3>
-          <p class="event-card__meta">Vie 6 nov · 16:00 · Plataforma inferior</p>
-          <div class="event-card__actions">
-            <a class="event-card__link" href="agenda/evento.html">Ver ficha ›</a>
-            <button class="event-card__share" type="button">Compartir</button>
-          </div>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <img src="img/evento-1.jpg" alt="RPD abierto">
+          <span class="etiqueta">RPD abierto</span>
+          <h3>RPD abierto de la plaza</h3>
+          <p>Vie 6 nov · 16:00 · Plataforma inferior</p>
+          <a href="agenda/evento.html">Ver ficha</a>
         </article>
 
-        <article class="event-card">
-          <img class="event-card__image" src="img/evento-2.jpg" alt="">
-          <span class="tag">Aniversario</span>
-          <h3 class="event-card__title">Aniversario TXT</h3>
-          <p class="event-card__meta">Sáb 7 nov · 16:00 · Atrio central</p>
-          <div class="event-card__actions">
-            <a class="event-card__link" href="agenda/evento.html">Ver ficha ›</a>
-            <button class="event-card__share" type="button">Compartir</button>
-          </div>
+        <article class="tarjeta">
+          <img src="img/evento-2.jpg" alt="Aniversario TXT">
+          <span class="etiqueta">Aniversario</span>
+          <h3>Aniversario TXT</h3>
+          <p>Sáb 7 nov · 16:00 · Atrio central</p>
+          <a href="agenda/evento.html">Ver ficha</a>
         </article>
 
-        <article class="event-card">
-          <img class="event-card__image" src="img/evento-3.jpg" alt="">
-          <span class="tag">Trueque</span>
-          <h3 class="event-card__title">Feria de trueque</h3>
-          <p class="event-card__meta">Dom 8 nov · 15:00 · Pasillos</p>
-          <div class="event-card__actions">
-            <a class="event-card__link" href="agenda/evento.html">Ver ficha ›</a>
-            <button class="event-card__share" type="button">Compartir</button>
-          </div>
+        <article class="tarjeta">
+          <img src="img/evento-3.jpg" alt="Feria de trueque">
+          <span class="etiqueta">Trueque</span>
+          <h3>Feria de trueque</h3>
+          <p>Dom 8 nov · 15:00 · Pasillos</p>
+          <a href="agenda/evento.html">Ver ficha</a>
         </article>
 
-        <article class="event-card">
-          <img class="event-card__image" src="img/evento-4.jpg" alt="">
-          <span class="tag">Proyección</span>
-          <h3 class="event-card__title">Proyección nocturna</h3>
-          <p class="event-card__meta">Vie 13 nov · 19:00 · Atrio central</p>
-          <div class="event-card__actions">
-            <a class="event-card__link" href="agenda/evento.html">Ver ficha ›</a>
-            <button class="event-card__share" type="button">Compartir</button>
-          </div>
+        <article class="tarjeta">
+          <img src="img/evento-4.jpg" alt="Proyección nocturna">
+          <span class="etiqueta">Proyección</span>
+          <h3>Proyección nocturna</h3>
+          <p>Vie 13 nov · 19:00 · Atrio central</p>
+          <a href="agenda/evento.html">Ver ficha</a>
         </article>
       </div>
     </section>
 
-    <!-- section.cta-banners · guía y fanclubs -->
-    <section class="cta-banners">
-      <article class="banner banner--guide">
-        <h3 class="banner__title">¿Primera vez en la plaza?</h3>
-        <p class="banner__text">Cómo funciona un RPD, normas de convivencia y qué llevar.</p>
-        <a class="banner__link" href="guia/index.html">Leer la guía ›</a>
+    <!-- BANNERS: guía y fanclubs -->
+    <section class="banners">
+      <article class="banner banner-guia">
+        <h3>¿Primera vez en la plaza?</h3>
+        <p>Cómo funciona un RPD, normas de convivencia y qué llevar.</p>
+        <a href="guia/index.html">Leer la guía</a>
       </article>
 
-      <article class="banner banner--fanclubs">
-        <h3 class="banner__title">Encuentra tu fanclub</h3>
-        <p class="banner__text">Únete a los grupos de WhatsApp que ya organizan los eventos.</p>
-        <a class="btn btn--whatsapp" href="fanclubs/index.html">Ver fanclubs <span aria-hidden="true">→</span></a>
+      <article class="banner">
+        <h3>Encuentra tu fanclub</h3>
+        <p>Únete a los grupos de WhatsApp que ya organizan los eventos.</p>
+        <a class="boton boton-verde" href="fanclubs/index.html">Ver fanclubs</a>
       </article>
     </section>
 
   </main>
 
-  <!-- ===== footer.site-footer ===== -->
-  <footer class="site-footer">
-    <div class="footer-top">
-      <a class="site-logo" href="index.html">K-Agenda</a>
-      <ul class="footer-menu">
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie">
+    <div class="pie-arriba">
+      <a class="logo" href="index.html">K-Agenda</a>
+      <ul class="pie-menu">
         <li><a href="guia/index.html">Guía de la plaza</a></li>
         <li><a href="fanclubs/index.html">Fanclubs</a></li>
         <li><a href="contacto/index.html">Contacto</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 K-Agenda · Hecho para la comunidad K-pop de La Paz · Sin cuentas</p>
-      <a class="back-to-top" href="#top">↑ Volver arriba</a>
+    <div class="pie-abajo">
+      <p>© 2026 K-Agenda · Hecho para la comunidad K-pop de La Paz</p>
+      <a href="#">Volver arriba</a>
     </div>
   </footer>
-
-  <!-- ===== nav.bottom-nav (solo móvil) ===== -->
-  <nav class="bottom-nav" aria-label="Navegación rápida">
-    <a class="bottom-nav__item" href="index.html" aria-current="page"><span class="icon" aria-hidden="true"></span>Inicio</a>
-    <a class="bottom-nav__item" href="agenda/index.html"><span class="icon" aria-hidden="true"></span>Agenda</a>
-    <a class="bottom-nav__item" href="en-vivo/index.html"><span class="icon" aria-hidden="true"></span>En vivo</a>
-    <a class="bottom-nav__item" href="rpd/index.html"><span class="icon" aria-hidden="true"></span>RPD</a>
-    <a class="bottom-nav__item" href="inscripciones/index.html"><span class="icon" aria-hidden="true"></span>Inscribir</a>
-  </nav>
 
 </body>
 </html>

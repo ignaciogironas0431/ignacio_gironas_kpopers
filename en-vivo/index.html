@@ -5,26 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hoy en la plaza · K-Agenda</title>
 
-  <!-- Tipografías: Anton (títulos) + Inter (texto) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <!-- Fuentes de Google: Anton para títulos, Inter para texto -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- "../" significa: salir de esta carpeta y buscar en la principal -->
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body id="top">
+<body>
 
-  <!-- ===== header.site-header ===== -->
-  <header class="site-header">
-    <a class="site-logo" href="../index.html">K-Agenda</a>
+  <!-- CABECERA -->
+  <header class="cabecera">
+    <a class="logo" href="../index.html">K-Agenda</a>
 
-    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">≡</button>
-
-    <nav class="main-navigation" aria-label="Menú principal">
-      <ul class="main-menu">
+    <nav class="menu">
+      <ul>
         <li><a href="../index.html">Inicio</a></li>
         <li><a href="../agenda/index.html">Agenda</a></li>
-        <li><a href="../en-vivo/index.html" aria-current="page">En vivo</a></li>
+        <li><a class="activo" href="../en-vivo/index.html">En vivo</a></li>
         <li><a href="../rpd/index.html">RPD</a></li>
         <li><a href="../inscripciones/index.html">Inscripciones</a></li>
         <li><a href="../fanclubs/index.html">Fanclubs</a></li>
@@ -32,59 +28,51 @@
       </ul>
     </nav>
 
-    <a class="btn btn--secondary header-cta" href="../fanclubs/index.html">Comunidad en WhatsApp <span aria-hidden="true">→</span></a>
+    <a class="boton boton-borde boton-cabecera" href="../fanclubs/index.html">Comunidad en WhatsApp</a>
   </header>
 
-  <!-- ===== main.main-content ===== -->
-  <main class="main-content">
-    <section class="page-header">
-      <a class="page-header__back" href="../index.html">← Inicio</a>
-      <span class="tag">Página 3.1</span>
-      <h1 class="page-title">Hoy en la plaza</h1>
-      <p class="page-header__text">Cronograma del día publicado por el organizador. Los cambios se avisan por WhatsApp.</p>
+  <main>
+    <!-- ENCABEZADO DE LA PÁGINA -->
+    <section class="pagina-encabezado">
+      <a class="volver" href="../index.html">← Inicio</a>
+      <span class="etiqueta">Página 3.1</span>
+      <h1>Hoy en la plaza</h1>
+      <p>Cronograma del día publicado por el organizador.</p>
     </section>
 
-    <section class="placeholder">
-      <div class="placeholder__box">
-        <span class="tag tag--now">En construcción</span>
-        <h2 class="placeholder__title">Próximamente en esta página</h2>
-        <ul class="placeholder__list">
-          <li>Línea de tiempo con el bloque "Ahora"</li>
-          <li>Sector de cada bloque</li>
-          <li>Añadir al calendario</li>
+    <!-- CONTENIDO (por ahora, en construcción) -->
+    <section>
+      <div class="en-construccion">
+        <span class="etiqueta etiqueta-ahora">En construcción</span>
+        <h3>Próximamente en esta página</h3>
+        <ul>
+          <li>Bloques del día con su hora y sector</li>
+          <li>Bloque que está pasando ahora</li>
           <li>Avisar un cambio a mi grupo</li>
         </ul>
       </div>
-      <div class="page-actions">
-        <a class="btn btn--primary" href="../en-vivo/mapa.html">Ver mapa de la plaza <span aria-hidden="true">→</span></a>
+
+      <div class="botones">
+        <a class="boton boton-magenta" href="../en-vivo/mapa.html">Ver mapa de la plaza</a>
       </div>
     </section>
   </main>
 
-  <!-- ===== footer.site-footer ===== -->
-  <footer class="site-footer">
-    <div class="footer-top">
-      <a class="site-logo" href="../index.html">K-Agenda</a>
-      <ul class="footer-menu">
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie">
+    <div class="pie-arriba">
+      <a class="logo" href="../index.html">K-Agenda</a>
+      <ul class="pie-menu">
         <li><a href="../guia/index.html">Guía de la plaza</a></li>
         <li><a href="../fanclubs/index.html">Fanclubs</a></li>
         <li><a href="../contacto/index.html">Contacto</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 K-Agenda · Hecho para la comunidad K-pop de La Paz · Sin cuentas</p>
-      <a class="back-to-top" href="#top">↑ Volver arriba</a>
+    <div class="pie-abajo">
+      <p>© 2026 K-Agenda · Hecho para la comunidad K-pop de La Paz</p>
+      <a href="#">Volver arriba</a>
     </div>
   </footer>
-
-  <!-- ===== nav.bottom-nav (solo móvil) ===== -->
-  <nav class="bottom-nav" aria-label="Navegación rápida">
-    <a class="bottom-nav__item" href="../index.html"><span class="icon" aria-hidden="true"></span>Inicio</a>
-    <a class="bottom-nav__item" href="../agenda/index.html"><span class="icon" aria-hidden="true"></span>Agenda</a>
-    <a class="bottom-nav__item" href="../en-vivo/index.html" aria-current="page"><span class="icon" aria-hidden="true"></span>En vivo</a>
-    <a class="bottom-nav__item" href="../rpd/index.html"><span class="icon" aria-hidden="true"></span>RPD</a>
-    <a class="bottom-nav__item" href="../inscripciones/index.html"><span class="icon" aria-hidden="true"></span>Inscribir</a>
-  </nav>
 
 </body>
 </html>

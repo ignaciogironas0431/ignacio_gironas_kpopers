@@ -1,457 +1,353 @@
 /* =========================================================
-   K-Agenda · Plaza Camacho — CSS base
-   Los tokens vienen de las variables de Figma (página "Maquetacion"):
-   colecciones colors, spaces, semantics y typography.
-   Enfoque mobile first: estilos base = móvil (390 px),
-   @media (min-width: 1024px) = escritorio (1440 px).
+   K-AGENDA · CSS base (versión simple)
+   Primero los estilos para celular.
+   Al final, con @media, los cambios para computadora.
    ========================================================= */
 
-/* ---------- 1. TOKENS ---------- */
+
+/* ---------- 1. VARIABLES ----------
+   Son los mismos colores y medidas de Figma.
+   Si cambias un color aquí, cambia en toda la página. */
 :root {
-  /* colors · primitivas (solo las que usa la base) */
-  --magenta-400: #F54ABD;
-  --magenta-500: #F31DAC;
-  --magenta-900: #3D072B;
-  --cian-400: #57C7FC;
-  --cian-500: #2DB9FB;
-  --menta-500: #5EFCD4;
-  --lima-400: #52EB7F;
-  --lima-500: #27E65F;
-  --lavanda-500: #7572BB;
-  --noche-300: #B8B8C0;
-  --noche-400: #8C8C96;
-  --noche-500: #64646E;
-  --noche-700: #2C2C33;
-  --noche-800: #18181D;
-  --noche-900: #090C0B;
-  --white: #FFFFFF;
+  /* colores */
+  --magenta: #F31DAC;       /* color principal: botones y logo */
+  --cian: #2DB9FB;          /* enlaces */
+  --menta: #5EFCD4;         /* etiqueta "Ahora" */
+  --lima: #27E65F;          /* botones de WhatsApp */
+  --lavanda: #7572BB;       /* apoyo (degradado de la portada) */
+  --fondo: #090C0B;         /* fondo de la página */
+  --fondo-tarjeta: #18181D; /* fondo de tarjetas y pie */
+  --fondo-suave: #2C2C33;   /* etiquetas y fotos vacías */
+  --borde: #2C2C33;         /* líneas y bordes */
+  --texto: #FFFFFF;         /* texto principal */
+  --texto-suave: #B8B8C0;   /* texto secundario */
 
-  /* spaces · primitivas */
-  --space-4: 0.25rem;
-  --space-8: 0.5rem;
-  --space-12: 0.75rem;
-  --space-16: 1rem;
-  --space-24: 1.5rem;
-  --space-32: 2rem;
-  --space-40: 2.5rem;
-  --space-48: 3rem;
-  --space-64: 4rem;
-  --space-80: 5rem;
-  --radius-8: 8px;
-  --radius-16: 16px;
-  --radius-999: 999px;
+  /* fuentes */
+  --fuente-titulos: "Anton", sans-serif;
+  --fuente-texto: "Inter", sans-serif;
 
-  /* semantics · alias (mismos nombres que en Figma) */
-  --bg-page: var(--noche-900);
-  --bg-surface: var(--noche-800);
-  --bg-card: var(--noche-800);
-  --bg-raised: var(--noche-700);
-  --bg-primary-subtle: var(--magenta-900);
-
-  --text-primary: var(--white);
-  --text-secondary: var(--noche-300);
-  --text-tertiary: var(--noche-400);
-  --text-on-primary: var(--noche-900);
-  --text-on-accent: var(--noche-900);
-  --text-link: var(--cian-400);
-  --text-accent: var(--magenta-400);
-
-  --color-primary: var(--magenta-500);
-  --color-primary-hover: var(--magenta-400);
-  --color-accent: var(--cian-500);
-  --color-accent-hover: var(--cian-400);
-  --color-whatsapp: var(--lima-500);
-  --color-whatsapp-hover: var(--lima-400);
-  --color-highlight: var(--menta-500);
-  --color-support: var(--lavanda-500);
-
-  --border-default: var(--noche-700);
-  --border-strong: var(--noche-500);
-  --border-accent: var(--magenta-500);
-  --border-width: 1px;
-
-  --padding-page-x: var(--space-16);      /* móvil: padding/page-x-sm */
-  --padding-section-y: var(--space-40);
-  --padding-card: var(--space-16);
-  --padding-button-x: var(--space-24);
-  --padding-button-y: var(--space-12);
-  --padding-chip-x: var(--space-16);
-  --padding-chip-y: var(--space-8);
-  --gap-nav: var(--space-32);
-  --gap-grid: var(--space-24);
-  --gap-stack: var(--space-16);
-  --gap-inline: var(--space-8);
-  --radius-sm: var(--radius-8);
-  --radius-card: var(--radius-16);
-  --radius-pill: var(--radius-999);
-
-  /* typography */
-  --font-display: "Anton", Impact, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --fs-display: 3.8125rem;  --lh-display: 4rem;     /* 61 / 64 */
-  --fs-h1: 3.0625rem;       --lh-h1: 3.5rem;        /* 49 / 56 */
-  --fs-h2: 2.4375rem;       --lh-h2: 3rem;          /* 39 / 48 */
-  --fs-h3: 1.5625rem;       --lh-h3: 2rem;          /* 25 / 32 */
-  --fs-h4: 1.25rem;         --lh-h4: 1.75rem;       /* 20 / 28 */
-  --fs-lead: 1.25rem;       --lh-lead: 1.875rem;    /* 20 / 30 */
-  --fs-body: 1rem;          --lh-body: 1.5rem;      /* 16 / 24 */
-  --fs-caption: 0.8125rem;  --lh-caption: 1.25rem;  /* 13 / 20 */
-  --fw-regular: 400;
-  --fw-medium: 500;
-  --fw-semibold: 600;
-  --fw-bold: 700;
+  /* medidas */
+  --margen: 16px;           /* espacio a los costados (celular) */
+  --radio: 16px;            /* esquinas redondeadas */
 }
 
-/* ---------- 2. RESET ---------- */
-*,
-*::before,
-*::after { box-sizing: border-box; }
 
-body, h1, h2, h3, p, ul { margin: 0; }
-ul { padding: 0; list-style: none; }
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+/* ---------- 2. BÁSICOS ---------- */
+* {
+  box-sizing: border-box;   /* el padding no agranda las cajas */
+}
 
-/* ---------- 3. BASE · estilos de texto de Figma ---------- */
 body {
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  color: var(--text-primary);
-  background-color: var(--bg-page);
-  padding-bottom: 72px; /* espacio para nav.bottom-nav en móvil */
+  margin: 0;
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-/* Heading/H1 (móvil) → Heading/Display (escritorio) */
-.hero__title {
-  font-family: var(--font-display);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-h1);
-  line-height: var(--lh-h1);
+h1, h2, h3, p {
+  margin: 0;
+}
+
+/* Títulos grandes con Anton, en mayúsculas */
+h1, h2 {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
   text-transform: uppercase;
+  line-height: 1.15;
+}
+h1 { font-size: 49px; }
+h2 { font-size: 39px; }
+h3 { font-size: 20px; }
+
+a {
+  color: var(--cian);
+  text-decoration: none;
 }
 
-/* Heading/H2 */
-.section-title {
-  font-family: var(--font-display);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-h2);
-  line-height: var(--lh-h2);
-  text-transform: uppercase;
+img {
+  width: 100%;
+  display: block;
 }
 
-/* UI/Overline */
-.tag {
+
+/* ---------- 3. PIEZAS QUE SE REPITEN ---------- */
+
+/* Botones */
+.boton {
   display: inline-block;
-  padding: var(--space-4) 10px;
-  border-radius: var(--radius-sm);
-  background-color: var(--bg-raised);
-  color: var(--text-secondary);
-  font-size: var(--fs-caption);
-  line-height: var(--lh-caption);
-  font-weight: var(--fw-bold);
+  padding: 12px 24px;
+  border-radius: 999px;     /* forma de píldora */
+  font-weight: 600;
+  text-align: center;
+}
+.boton:hover { opacity: 0.85; }
+
+.boton-magenta { background-color: var(--magenta); color: var(--fondo); }
+.boton-verde   { background-color: var(--lima);    color: var(--fondo); }
+.boton-borde   { border: 2px solid var(--texto-suave); color: var(--texto); }
+
+/* Etiquetas pequeñas */
+.etiqueta {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background-color: var(--fondo-suave);
+  color: var(--texto-suave);
+  font-size: 13px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 1px;
 }
-.tag--now {
-  background-color: var(--color-highlight);
-  color: var(--text-on-accent);
+.etiqueta-ahora {
+  background-color: var(--menta);
+  color: var(--fondo);
 }
 
-/* ---------- 4. COMPONENTES ---------- */
-/* Button · Type = Primary / WhatsApp / Secondary · UI/Label */
-.btn {
-  display: inline-flex;
+/* Logo */
+.logo {
+  font-family: var(--fuente-titulos);
+  font-size: 28px;
+  text-transform: uppercase;
+  color: var(--magenta);
+}
+
+
+/* ---------- 4. CABECERA ---------- */
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;          /* en celular el menú baja a otra línea */
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: var(--gap-inline);
-  padding: var(--padding-button-y) var(--padding-button-x);
-  border-radius: var(--radius-pill);
-  font-weight: var(--fw-semibold);
-  transition: background-color 0.2s, border-color 0.2s;
+  gap: 12px;
+  padding: 16px var(--margen);
+  border-bottom: 1px solid var(--borde);
 }
-.btn--primary { background-color: var(--color-primary); color: var(--text-on-primary); }
-.btn--primary:hover { background-color: var(--color-primary-hover); }
-.btn--whatsapp { background-color: var(--color-whatsapp); color: var(--text-on-primary); }
-.btn--whatsapp:hover { background-color: var(--color-whatsapp-hover); }
-.btn--secondary { border: 1.5px solid var(--border-strong); color: var(--text-primary); }
-.btn--secondary:hover { border-color: var(--border-accent); }
 
-/* EventCard */
-.event-card {
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu a {
+  color: var(--texto-suave);
+  font-size: 16px;
+  font-weight: 600;
+}
+.menu a.activo {
+  color: var(--texto);
+  border-bottom: 2px solid var(--magenta);
+}
+
+.boton-cabecera {
+  display: none;            /* en celular no se muestra */
+}
+
+
+/* ---------- 5. SECCIONES DE LA PÁGINA ---------- */
+
+/* Todas las secciones tienen el mismo margen a los costados */
+section {
+  padding: 32px var(--margen);
+}
+
+/* Portada */
+.portada img {
+  height: 200px;
+  border-radius: var(--radio);
+  object-fit: cover;
+  /* degradado mientras no haya foto */
+  background: linear-gradient(90deg, var(--magenta), var(--lavanda), var(--cian));
+}
+.portada-texto {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--gap-stack);
-  padding: var(--padding-card);
-  background-color: var(--bg-card);
-  border: var(--border-width) solid var(--border-default);
-  border-radius: var(--radius-card);
+  gap: 16px;
+  margin-top: 16px;
 }
-.event-card__image {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  background-color: var(--bg-raised); /* se ve mientras no hay foto */
+.portada-texto p {
+  color: var(--texto-suave);
 }
-.event-card__title { font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: var(--fw-semibold); }
-.event-card__meta { font-size: var(--fs-caption); line-height: var(--lh-caption); color: var(--text-secondary); }
-.event-card__actions {
+.botones {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
-}
-.event-card__link { color: var(--text-link); }
-.event-card__share { color: var(--text-secondary); }
-
-/* ---------- 5. LAYOUT · móvil ---------- */
-/* header.site-header */
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px var(--padding-page-x);
-  border-bottom: var(--border-width) solid var(--border-default);
-}
-.site-logo {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  line-height: 2rem;
-  text-transform: uppercase;
-  color: var(--color-primary);
-}
-.menu-toggle {
-  width: 40px;
-  height: 40px;
-  border: var(--border-width) solid var(--border-strong);
-  border-radius: var(--radius-sm);
-}
-.main-navigation,
-.header-cta { display: none; } /* en móvil se usa nav.bottom-nav */
-
-/* section.hero */
-.hero {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-stack);
-  padding: var(--space-24) var(--padding-page-x) var(--padding-section-y);
-}
-.hero__image {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: var(--radius-card);
-  /* degradado de euforia mientras no hay foto */
-  background: linear-gradient(90deg, var(--color-primary), var(--color-support), var(--color-accent));
-}
-.hero__content { display: flex; flex-direction: column; align-items: flex-start; gap: var(--gap-stack); }
-.hero__meta { color: var(--text-secondary); }
-.hero__actions { display: flex; flex-direction: column; gap: var(--space-12); width: 100%; }
-
-/* secciones con padding horizontal común */
-.quick-access,
-.this-week,
-.cta-banners {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-stack);
-  padding: 0 var(--padding-page-x) var(--padding-section-y);
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-/* ul.quick-access__list · 2 columnas en móvil */
-.quick-access__list {
+/* Accesos rápidos: 2 columnas en celular */
+.accesos-lista {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-12);
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
 }
-.quick-card a {
+.acceso {
+  padding: 16px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background-color: var(--fondo-tarjeta);
+  color: var(--texto);
+}
+.acceso h3 { font-size: 16px; margin-top: 10px; }
+.acceso p  { font-size: 13px; color: var(--texto-suave); }
+
+.punto {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.punto.magenta { background-color: var(--magenta); }
+.punto.menta   { background-color: var(--menta); }
+.punto.cian    { background-color: var(--cian); }
+.punto.lima    { background-color: var(--lima); }
+
+/* Esta semana */
+.titulo-seccion {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.titulo-seccion a { font-size: 13px; }
+
+.tarjetas {
+  display: grid;
+  gap: 16px;                /* 1 columna en celular */
+}
+.tarjeta {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  height: 100%;
-  padding: var(--padding-card);
-  background-color: var(--bg-surface);
-  border: var(--border-width) solid var(--border-default);
-  border-radius: var(--radius-card);
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background-color: var(--fondo-tarjeta);
 }
-.quick-card__icon { width: 32px; height: 32px; border-radius: 50%; }
-.quick-card__icon--primary { background-color: var(--color-primary); }
-.quick-card__icon--highlight { background-color: var(--color-highlight); }
-.quick-card__icon--accent { background-color: var(--color-accent); }
-.quick-card__icon--whatsapp { background-color: var(--color-whatsapp); }
-.quick-card__title { font-size: var(--fs-body); font-weight: var(--fw-semibold); }
-.quick-card__text { display: none; } /* solo en escritorio */
+.tarjeta img {
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: var(--fondo-suave);
+}
+.tarjeta p {
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+.tarjeta a { font-size: 13px; font-weight: 500; }
 
-/* header.section-header */
-.section-header { display: flex; justify-content: space-between; align-items: flex-end; }
-.section-link { color: var(--text-link); font-size: var(--fs-caption); font-weight: var(--fw-medium); }
-
-/* div.events-grid · 1 columna en móvil */
-.events-grid { display: grid; gap: var(--gap-stack); }
-
-/* article.banner */
+/* Banners */
+.banners {
+  display: grid;
+  gap: 16px;
+  padding-bottom: 48px;
+}
 .banner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-8);
+  gap: 8px;
   padding: 20px;
-  border-radius: var(--radius-card);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background-color: var(--fondo-tarjeta);
 }
-.banner--guide { background-color: var(--bg-primary-subtle); border: var(--border-width) solid var(--border-accent); }
-.banner--fanclubs { background-color: var(--bg-surface); border: var(--border-width) solid var(--border-default); }
-.banner__title { font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: var(--fw-semibold); }
-.banner__text { color: var(--text-secondary); }
-.banner__link { color: var(--text-accent); font-weight: var(--fw-semibold); }
+.banner p { color: var(--texto-suave); }
+.banner-guia { border-color: var(--magenta); }
+.banner-guia a { color: var(--magenta); font-weight: 600; }
 
-/* footer.site-footer */
-.site-footer {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-stack);
-  padding: var(--space-24) var(--padding-page-x);
-  background-color: var(--bg-surface);
-  font-size: var(--fs-caption);
+
+/* ---------- 6. PIE DE PÁGINA ---------- */
+.pie {
+  padding: 24px var(--margen);
+  background-color: var(--fondo-tarjeta);
+  font-size: 13px;
 }
-.footer-top,
-.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--gap-stack); }
-.footer-menu { display: flex; gap: var(--gap-stack); color: var(--text-secondary); }
-.footer-bottom p { color: var(--text-tertiary); }
-.back-to-top { color: var(--text-link); }
-
-/* nav.bottom-nav · fija abajo en móvil */
-.bottom-nav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.pie-arriba,
+.pie-abajo {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  padding: 10px 20px;
-  background-color: var(--bg-surface);
-  border-top: var(--border-width) solid var(--border-default);
+  align-items: center;
+  gap: 16px;
 }
-.bottom-nav__item {
+.pie-abajo { margin-top: 16px; color: var(--texto-suave); }
+.pie-menu {
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pie-menu a { color: var(--texto-suave); }
+
+
+/* ---------- 7. PÁGINAS EN CONSTRUCCIÓN ---------- */
+.volver { color: var(--texto-suave); font-size: 14px; }
+.pagina-encabezado {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
-  font-size: var(--fs-caption);
-  color: var(--text-secondary);
+  align-items: flex-start;
+  gap: 12px;
 }
-.bottom-nav__item .icon { width: 20px; height: 20px; border-radius: 50%; background-color: var(--border-strong); }
-.bottom-nav__item[aria-current="page"] { color: var(--text-primary); }
-.bottom-nav__item[aria-current="page"] .icon { background-color: var(--color-primary); }
+.pagina-encabezado p { color: var(--texto-suave); max-width: 640px; }
 
-/* ---------- 6. ESCRITORIO · 1024 px en adelante ---------- */
-@media (min-width: 1024px) {
+.en-construccion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  border: 2px dashed var(--borde);
+  border-radius: var(--radio);
+  background-color: var(--fondo-tarjeta);
+}
+.en-construccion ul { margin: 0; padding-left: 20px; color: var(--texto-suave); }
+
+
+/* ---------- 8. COMPUTADORA (pantallas de 900px o más) ---------- */
+@media (min-width: 900px) {
   :root {
-    --padding-page-x: var(--space-80);   /* padding/page-x */
-    --padding-section-y: var(--space-64);
-    --padding-card: var(--space-24);
+    --margen: 80px;         /* más espacio a los costados */
   }
 
-  body { padding-bottom: 0; }
-  .bottom-nav,
-  .menu-toggle { display: none; }
+  h1 { font-size: 61px; }
 
-  .site-header { padding-block: 20px; }
-  .main-navigation,
-  .header-cta { display: flex; }
-  .main-menu { display: flex; gap: var(--gap-nav); }
-  .main-menu a {
-    display: block;
-    padding: var(--space-8) 0;
-    font-weight: var(--fw-semibold);
-    color: var(--text-secondary);
-  }
-  .main-menu a[aria-current="page"] {
-    color: var(--text-primary);
-    border-bottom: 2px solid var(--border-accent); /* NavLink · Active */
-  }
+  .boton-cabecera { display: inline-block; }
 
-  .hero {
-    flex-direction: row;
+  section { padding-top: 64px; padding-bottom: 0; }
+
+  /* Portada: imagen y texto lado a lado */
+  .portada {
+    display: flex;
     align-items: center;
     gap: 56px;
-    padding: var(--padding-section-y) var(--padding-page-x);
   }
-  .hero__media,
-  .hero__content { flex: 1; }
-  .hero__image { aspect-ratio: auto; height: 400px; }
-  .hero__title { font-size: var(--fs-display); line-height: var(--lh-display); } /* Heading/Display */
-  .hero__meta { font-size: var(--fs-lead); line-height: var(--lh-lead); }      /* Text/Lead */
-  .hero__actions { flex-direction: row; width: auto; }
+  .portada-imagen,
+  .portada-texto { flex: 1; }
+  .portada img { height: 400px; }
+  .portada-texto { margin-top: 0; }
+  .portada-texto p { font-size: 20px; }
 
-  .quick-access,
-  .this-week { gap: var(--gap-grid); }
-  .quick-access__list { grid-template-columns: repeat(4, 1fr); gap: var(--gap-grid); }
-  .quick-card__icon { width: 40px; height: 40px; }
-  .quick-card__title { font-size: var(--fs-h4); line-height: var(--lh-h4); }
-  .quick-card__text { display: block; font-size: var(--fs-caption); color: var(--text-secondary); }
+  .accesos-lista { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .acceso { padding: 24px; }
+  .acceso h3 { font-size: 20px; }
+  .punto { width: 40px; height: 40px; }
 
-  .section-link { font-size: var(--fs-body); }
-  .events-grid { grid-template-columns: repeat(4, 1fr); gap: var(--gap-grid); }
+  .tarjetas { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .tarjeta { padding: 24px; }
 
-  .cta-banners { flex-direction: row; gap: var(--gap-grid); padding-bottom: var(--space-80); }
-  .banner { flex: 1; padding: var(--space-32); gap: var(--space-12); }
-  .banner__title { font-size: var(--fs-h3); line-height: var(--lh-h3); font-weight: var(--fw-bold); }
+  .banners { grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 80px; }
+  .banner { padding: 32px; }
+  .banner h3 { font-size: 25px; }
+  .titulo-seccion a { font-size: 16px; }
 
-  .site-footer { padding-block: var(--space-40); gap: var(--gap-grid); }
-  .footer-menu { gap: var(--gap-nav); }
-}
-
-/* ---------- 7. PÁGINAS BASE (en construcción) ---------- */
-/* section.page-header · encabezado común de las páginas internas */
-.page-header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-12);
-  padding: var(--space-24) var(--padding-page-x) var(--space-32);
-}
-.page-header__back { color: var(--text-secondary); font-size: var(--fs-caption); font-weight: var(--fw-medium); }
-.page-header__back:hover { color: var(--text-primary); }
-.page-title {               /* Heading/H1 */
-  font-family: var(--font-display);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-h1);
-  line-height: var(--lh-h1);
-  text-transform: uppercase;
-}
-.page-header__text { color: var(--text-secondary); max-width: 40rem; }
-
-/* section.placeholder · recuadro "en construcción" */
-.placeholder {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-grid);
-  padding: 0 var(--padding-page-x) var(--padding-section-y);
-}
-.placeholder__box {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--gap-stack);
-  padding: var(--space-24);
-  border: 1.5px dashed var(--border-strong);
-  border-radius: var(--radius-card);
-  background-color: var(--bg-surface);
-}
-.placeholder__title { font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: var(--fw-semibold); }
-.placeholder__list { display: grid; gap: var(--space-8); color: var(--text-secondary); }
-.placeholder__list li::before { content: "→ "; color: var(--color-primary); }
-.page-actions { display: flex; flex-direction: column; gap: var(--space-12); }
-
-@media (min-width: 1024px) {
-  .page-header { padding: var(--space-48) var(--padding-page-x) var(--space-40); }
-  .page-title { font-size: var(--fs-display); line-height: var(--lh-display); }
-  .page-header__text { font-size: var(--fs-lead); line-height: var(--lh-lead); }
-  .placeholder__box { padding: var(--space-40); }
-  .page-actions { flex-direction: row; }
+  .pie { padding: 40px var(--margen); }
 }
